@@ -1,8 +1,9 @@
 import os
+from pathlib import Path
 from CNNClassifier.constants import *
 from CNNClassifier.utils.common import read_yaml,create_directories
 from CNNClassifier.entity.config_entity import (DataIngestionConfig, PrepareBaseModelConfig ,
-                                                PrepareCallbackConfig, TrainingConfig)
+                                                PrepareCallbackConfig, TrainingConfig, EvaluationConfig)
 
 class ConfigurationManager:
     def __init__(
@@ -86,4 +87,16 @@ class ConfigurationManager:
                                 params_image_size = params.IMAGE_SIZE)
         
         return training__config
+    
+
+    def get_validation_config(self)-> EvaluationConfig :
+
+        eval_config = EvaluationConfig(        
+          training_data = Path("artifacts/data_ingestion/Grapevine_Leaves_Image_Dataset"),
+          path_of_model=Path("artifacts/training/model.h5"),
+          all_params= self.params,
+          params_image_size= self.params.IMAGE_SIZE,
+          params_batch_size = self.params.BATCH_SIZE
+                                    )
+        return eval_config
     

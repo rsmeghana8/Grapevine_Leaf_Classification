@@ -1,0 +1,117 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python src/CNNClassifier/pipeline/stage_01_data_ingestion.py
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: 930768508774aad97742d34b4dd1a478
+      size: 793
+    - path: src/CNNClassifier/pipeline/stage_01_data_ingestion.py
+      hash: md5
+      md5: fbc27d336c99f2dbe5cd2b396fa95bcb
+      size: 895
+    outs:
+    - path: artifacts/data_ingestion/Grapevine_Leaves_Image_Dataset
+      hash: md5
+      md5: 7e720c7053b1c3d3f10e0755824b2519.dir
+      size: 114539947
+      nfiles: 501
+  prepare_base_model:
+    cmd: python src/CNNClassifier/pipeline/stage_02_base_model.py
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: 930768508774aad97742d34b4dd1a478
+      size: 793
+    - path: src/CNNClassifier/pipeline/stage_02_base_model.py
+      hash: md5
+      md5: 426067433d34cbc2f7fdb5e4bff98557
+      size: 987
+    params:
+      params.yaml:
+        CLASSES: 5
+        IMAGE_SIZE:
+        - 224
+        - 224
+        - 3
+        INCLUDE_TOP: false
+        LEARNING_RATE: 0.01
+        WEIGHTS: imagenet
+    outs:
+    - path: artifacts/prepare_base_model
+      hash: md5
+      md5: 96a1061dbb20863a0a418321b432ccf6.dir
+      size: 118360304
+      nfiles: 2
+  training:
+    cmd: python src/CNNClassifier/pipeline/stage_03_training.py
+    deps:
+    - path: artifacts/data_ingestion/Grapevine_Leaves_Image_Dataset
+      hash: md5
+      md5: 7e720c7053b1c3d3f10e0755824b2519.dir
+      size: 114539947
+      nfiles: 501
+    - path: artifacts/prepare_base_model
+      hash: md5
+      md5: 96a1061dbb20863a0a418321b432ccf6.dir
+      size: 118360304
+      nfiles: 2
+    - path: config/config.yaml
+      hash: md5
+      md5: 930768508774aad97742d34b4dd1a478
+      size: 793
+    - path: src/CNNClassifier/components/prepare_callbacks.py
+      hash: md5
+      md5: 8b558fe86c9b59be28f9af61f9b686ad
+      size: 892
+    - path: src/CNNClassifier/pipeline/stage_03_training.py
+      hash: md5
+      md5: e67ece2dddb41bd21b52c46d4b16ce15
+      size: 1243
+    params:
+      params.yaml:
+        AUGMENTATION: true
+        BATCH_SIZE: 16
+        EPOCHS: 1
+        IMAGE_SIZE:
+        - 224
+        - 224
+        - 3
+    outs:
+    - path: artifacts/training/model.h5
+      hash: md5
+      md5: 1b1d5221f667c889a00da9ee02eb5bbc
+      size: 59942832
+  evaluation:
+    cmd: python src/CNNClassifier/pipeline/stage_04_data_evaluation.py
+    deps:
+    - path: artifacts/data_ingestion/Grapevine_Leaves_Image_Dataset
+      hash: md5
+      md5: 7e720c7053b1c3d3f10e0755824b2519.dir
+      size: 114539947
+      nfiles: 501
+    - path: artifacts/training/model.h5
+      hash: md5
+      md5: 1b1d5221f667c889a00da9ee02eb5bbc
+      size: 59942832
+    - path: config/config.yaml
+      hash: md5
+      md5: 930768508774aad97742d34b4dd1a478
+      size: 793
+    - path: src/CNNClassifier/pipeline/stage_04_data_evaluation.py
+      hash: md5
+      md5: 88c793c04cfe6cd6029dc747e3363195
+      size: 835
+    params:
+      params.yaml:
+        BATCH_SIZE: 16
+        IMAGE_SIZE:
+        - 224
+        - 224
+        - 3
+    outs:
+    - path: scores.json
+      hash: md5
+      md5: dec54101dca806c11a7b96e9e87f680b
+      size: 70
