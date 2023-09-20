@@ -59,7 +59,7 @@ The model looks balanced as the val curves follows train curves closely
 
 
 Let's look at the confusion matrix for model trained for 200 Epochs
-![CM](https://github.com/rsmeghana8/Grapevine_Leaf_Classification/assets/57563443/258839af-d335-491f-bb30-dd71ccca6d02)
+![CM](https://github.com/rsmeghana8/Grapevine_Leaf_Classification/assets/57563443/258839af-d335-491f-bb30-dd71ccca6d02)|width=100
 
 
 The model seems to perfrom well for all the classes but the class Ala_idris seems to be bit behind the rest with more false positives
