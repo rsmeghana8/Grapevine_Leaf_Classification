@@ -6,17 +6,17 @@ from CNNClassifier.pipeline.stage_03_training import ModelTrainingPipeline
 from CNNClassifier.pipeline.stage_04_data_evaluation import EvaluationPipeline
 
 
+ #Uncomment the following when running first time
 
-STAGE_NAME="Data Ingestion Training"
-try:
-    logger.info(f">>>>>>> Stage {STAGE_NAME} started <<<<<<<<")
-    data_ingestion = DataIngestionTrainingPipeline()
-    data_ingestion.main()
-    logger.info(f">>>>>>> Stage {STAGE_NAME} completed <<<<<<<<")   
-except Exception as e:
-    logger.exception(e)
-    raise e
-
+#STAGE_NAME="Data Ingestion Training"
+#try:
+#    logger.info(f">>>>>>> Stage {STAGE_NAME} started <<<<<<<<")
+#    data_ingestion = DataIngestionTrainingPipeline()
+#    data_ingestion.main()
+#    logger.info(f">>>>>>> Stage {STAGE_NAME} completed <<<<<<<<")   
+#except Exception as e:
+#    logger.exception(e)
+#    raise e
 
 STAGE_NAME="Prepare Base Model"
 try:
