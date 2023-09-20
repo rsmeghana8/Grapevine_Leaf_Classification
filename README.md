@@ -8,6 +8,8 @@ The objective of this project is to implement an image classifier to identify gr
 Get the dataset here: [Grapevine_leaf_detection](https://www.kaggle.com/datasets/muratkokludataset/grapevine-leaves-image-dataset)
 
 Dataset has total of 500 leaf images belonging to 5 different grapevine species namely AK, Ala_Idris, Buzgulu, Dimnit and Nazil. The dataset is balanced with each species having 500 images.
+![](https://github.com/rsmeghana8/Grapevine_Leaf_Classification/assets/57563443/32d3b039-614c-4054-a23d-82af966444d4)
+
 
 ### Installing requirements
 To install all the dependencies,after cloning the repository run the following command:
