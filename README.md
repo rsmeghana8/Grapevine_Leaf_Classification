@@ -45,9 +45,13 @@ Here are the model scores when ran for different epochs
 |       100     |      69.9       |    2.80     |
 |       200     |      86.6       |    0.46     |
 
-The model that's trained for 200 Epochs looks promising. lets check out its loss and accuracy curves- ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) `#f03c15`
+The model that's trained for 200 Epochs looks promising. lets check out its loss and accuracy curves- 
 - ![#7cb342](https://placehold.co/15x15/c5f015/c5f015.png) `Train`
 - ![#e8710a](https://placehold.co/15x15/1589F0/1589F0.png) `Val`
+
+  ![epochs_vs_loss](https://github.com/rsmeghana8/Grapevine_Leaf_Classification/assets/57563443/4702745d-5b27-4e64-a4d5-21bcbc34da71)
+
+![epochs_vs_accuracy](https://github.com/rsmeghana8/Grapevine_Leaf_Classification/assets/57563443/d02f9d7c-79da-47ef-a72d-7014c1e5e9dd)
 
 
 
@@ -55,6 +59,7 @@ The model looks balanced as the val curves follows train curves closely
 
 
 Let's look at the confusion matrix for model trained for 200 Epochs
+![CM](https://github.com/rsmeghana8/Grapevine_Leaf_Classification/assets/57563443/258839af-d335-491f-bb30-dd71ccca6d02)
 
 
 The model seems to perfrom well for all the classes but the class Ala_idris seems to be bit behind the rest with more false positives
