@@ -48,8 +48,10 @@ Here are the model scores when ran for different epochs
 The model that's trained for 200 Epochs looks promising. lets check out its loss and accuracy curves- 
 - ![#7cb342](https://placehold.co/15x15/c5f015/c5f015.png) `Train`
 - ![#e8710a](https://placehold.co/15x15/1589F0/1589F0.png) `Val`
+- 
+![epochs vs loss](https://github.com/rsmeghana8/Grapevine_Leaf_Classification/assets/57563443/554dd0f5-6190-4189-89ce-947d5d51c6e9)
 
-![epochs_vs_loss](https://github.com/rsmeghana8/Grapevine_Leaf_Classification/assets/57563443/4702745d-5b27-4e64-a4d5-21bcbc34da71)
+
 
 ![epochs_vs_accuracy](https://github.com/rsmeghana8/Grapevine_Leaf_Classification/assets/57563443/d02f9d7c-79da-47ef-a72d-7014c1e5e9dd)
 
